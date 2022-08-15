@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{99FEAC13-AB78-45FA-82BB-5B3B65D2E879}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParkingSpotRS.API", "src\ParkingSpotRS.API\ParkingSpotRS.API.csproj", "{99A679FD-75C9-4BFC-960F-A0C5833F9BE3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{99A679FD-75C9-4BFC-960F-A0C5833F9BE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99A679FD-75C9-4BFC-960F-A0C5833F9BE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99A679FD-75C9-4BFC-960F-A0C5833F9BE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99A679FD-75C9-4BFC-960F-A0C5833F9BE3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{99A679FD-75C9-4BFC-960F-A0C5833F9BE3} = {99FEAC13-AB78-45FA-82BB-5B3B65D2E879}
+	EndGlobalSection
+EndGlobal
