@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using ParkingSpotRS.Application.Services;
+using ParkingSpotRS.Core.Abstractions;
 using ParkingSpotRS.Core.Entities;
 using ParkingSpotRS.Core.ValueObjects;
 

@@ -1,9 +1,9 @@
-﻿using ParkingSpotRS.Application.Services;
+﻿using ParkingSpotRS.Core.Abstractions;
 using ParkingSpotRS.Core.Entities;
 using ParkingSpotRS.Core.Repositories;
 using ParkingSpotRS.Core.ValueObjects;
 
-namespace ParkingSpotRS.Infrastructure.Repositories;
+namespace ParkingSpotRS.Infrastructure.DAL.Repositories;
 
 internal sealed class InMemoryWeeklyParkingSpotRepository : IWeeklyParkingSpotRepository
 {
@@ -21,21 +21,23 @@ internal sealed class InMemoryWeeklyParkingSpotRepository : IWeeklyParkingSpotRe
         };
     }
 
-    public IEnumerable<WeeklyParkingSpot> GetAll() => _weeklyParkingSpots;
-
-    public IEnumerable<WeeklyParkingSpot> GetByWeek(Week week)
+    public async Task<IEnumerable<WeeklyParkingSpot>> GetAllAsync()
     {
-        throw new NotImplementedException();
+        await Task.CompletedTask;
+        return _weeklyParkingSpots;
     }
 
-    public WeeklyParkingSpot Get(ParkingSpotId id) => _weeklyParkingSpots.SingleOrDefault(x => x.Id == id);
+    public async Task<WeeklyParkingSpot> GetAsync(ParkingSpotId id)
+    {
+        await Task.CompletedTask;
+        return _weeklyParkingSpots.SingleOrDefault(x => x.Id == id);
+    }
 
-    public void Add(WeeklyParkingSpot weeklyParkingSpot)
+    public Task AddAsync(WeeklyParkingSpot weeklyParkingSpot)
     {
         _weeklyParkingSpots.Add(weeklyParkingSpot);
+        return Task.CompletedTask;
     }
 
-    public void Update(WeeklyParkingSpot weeklyParkingSpot)
-    {
-    }
+    public Task UpdateAsync(WeeklyParkingSpot weeklyParkingSpot) => Task.CompletedTask;
 }

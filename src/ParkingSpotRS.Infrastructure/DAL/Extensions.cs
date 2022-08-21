@@ -1,11 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using ParkingSpotRS.Application.Services;
 using ParkingSpotRS.Core.Repositories;
 using ParkingSpotRS.Infrastructure.DAL.Repositories;
-using ParkingSpotRS.Infrastructure.Repositories;
-using ParkingSpotRS.Infrastructure.Time;
 
 namespace ParkingSpotRS.Infrastructure.DAL;
 

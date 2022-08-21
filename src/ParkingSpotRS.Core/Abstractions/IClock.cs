@@ -1,4 +1,4 @@
-﻿namespace ParkingSpotRS.Application.Services;
+﻿namespace ParkingSpotRS.Core.Abstractions;
 
 public interface IClock
 {
