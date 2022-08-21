@@ -27,10 +27,11 @@ namespace ParkingSpotRS.Infrastructure.DAL.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    EmployeeName = table.Column<string>(type: "text", nullable: false),
-                    LicensePlate = table.Column<string>(type: "text", nullable: false),
                     Date = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
-                    WeeklyParkingSpotId = table.Column<Guid>(type: "uuid", nullable: true)
+                    Type = table.Column<string>(type: "text", nullable: false),
+                    WeeklyParkingSpotId = table.Column<Guid>(type: "uuid", nullable: true),
+                    EmployeeName = table.Column<string>(type: "text", nullable: true),
+                    LicensePlate = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {

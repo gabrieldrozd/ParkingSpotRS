@@ -16,7 +16,7 @@ public sealed record ReservationId
         Value = value;
     }
 
-    public static ParkingSpotId Create() => new(Guid.NewGuid());
+    public static ReservationId Create() => new(Guid.NewGuid());
 
     public static implicit operator Guid(ReservationId id)
         => id.Value;

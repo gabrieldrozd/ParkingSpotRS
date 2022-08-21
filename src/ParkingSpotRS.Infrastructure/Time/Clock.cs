@@ -1,5 +1,4 @@
-﻿using ParkingSpotRS.Application.Services;
-using ParkingSpotRS.Core.Abstractions;
+﻿using ParkingSpotRS.Core.Abstractions;
 
 namespace ParkingSpotRS.Infrastructure.Time;
 

@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using ParkingSpotRS.Application.Services;
 using ParkingSpotRS.Core.Abstractions;
 using ParkingSpotRS.Infrastructure.DAL;
 using ParkingSpotRS.Infrastructure.Exceptions;

@@ -12,8 +12,8 @@ using ParkingSpotRS.Infrastructure.DAL;
 namespace ParkingSpotRS.Infrastructure.DAL.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20220820000927_Init")]
-    partial class Init
+    [Migration("20220821223437_IntroducingCapacity")]
+    partial class IntroducingCapacity
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -29,14 +29,13 @@ namespace ParkingSpotRS.Infrastructure.DAL.Migrations
                     b.Property<Guid>("Id")
                         .HasColumnType("uuid");
 
+                    b.Property<int>("Capacity")
+                        .HasColumnType("integer");
+
                     b.Property<DateTimeOffset>("Date")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<string>("EmployeeName")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("LicensePlate")
+                    b.Property<string>("Type")
                         .IsRequired()
                         .HasColumnType("text");
 
@@ -48,12 +47,17 @@ namespace ParkingSpotRS.Infrastructure.DAL.Migrations
                     b.HasIndex("WeeklyParkingSpotId");
 
                     b.ToTable("Reservations");
+
+                    b.HasDiscriminator<string>("Type").HasValue("Reservation");
                 });
 
             modelBuilder.Entity("ParkingSpotRS.Core.Entities.WeeklyParkingSpot", b =>
                 {
                     b.Property<Guid>("Id")
                         .HasColumnType("uuid");
+
+                    b.Property<int>("Capacity")
+                        .HasColumnType("integer");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -65,6 +69,28 @@ namespace ParkingSpotRS.Infrastructure.DAL.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("WeeklyParkingSpots");
+                });
+
+            modelBuilder.Entity("ParkingSpotRS.Core.Entities.CleaningReservation", b =>
+                {
+                    b.HasBaseType("ParkingSpotRS.Core.Entities.Reservation");
+
+                    b.HasDiscriminator().HasValue("CleaningReservation");
+                });
+
+            modelBuilder.Entity("ParkingSpotRS.Core.Entities.VehicleReservation", b =>
+                {
+                    b.HasBaseType("ParkingSpotRS.Core.Entities.Reservation");
+
+                    b.Property<string>("EmployeeName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("LicensePlate")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasDiscriminator().HasValue("VehicleReservation");
                 });
 
             modelBuilder.Entity("ParkingSpotRS.Core.Entities.Reservation", b =>

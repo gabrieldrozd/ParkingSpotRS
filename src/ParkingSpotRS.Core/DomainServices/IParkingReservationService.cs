@@ -5,6 +5,8 @@ namespace ParkingSpotRS.Core.DomainServices;
 
 public interface IParkingReservationService
 {
-    public void ReserveSpotForVehicle(IEnumerable<WeeklyParkingSpot> allParkingSpots, JobTitle jobTitle,
-        WeeklyParkingSpot parkingSpotToReserve, Reservation reservation);
+    void ReserveSpotForVehicle(IEnumerable<WeeklyParkingSpot> allParkingSpots, JobTitle jobTitle,
+        WeeklyParkingSpot parkingSpotToReserve, VehicleReservation reservation);
+
+    void ReserveParkingForCleaning(IEnumerable<WeeklyParkingSpot> allParkingSpots, Date date);
 }
