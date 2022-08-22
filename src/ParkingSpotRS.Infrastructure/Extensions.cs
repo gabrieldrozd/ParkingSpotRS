@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using ParkingSpotRS.Application.Abstractions;
 using ParkingSpotRS.Core.Abstractions;
 using ParkingSpotRS.Infrastructure.DAL;
 using ParkingSpotRS.Infrastructure.Exceptions;
@@ -22,6 +23,12 @@ public static class Extensions
             .AddDatabase(config)
             // .AddSingleton<IWeeklyParkingSpotRepository, InMemoryWeeklyParkingSpotRepository>()
             .AddSingleton<IClock, Clock>();
+        
+        var infrastructureAssembly = typeof(AppOptions).Assembly;
+        services.Scan(s => s.FromAssemblies(infrastructureAssembly)
+            .AddClasses(c => c.AssignableTo(typeof(IQueryHandler<,>)))
+            .AsImplementedInterfaces()
+            .WithScopedLifetime());
 
         return services;
     }

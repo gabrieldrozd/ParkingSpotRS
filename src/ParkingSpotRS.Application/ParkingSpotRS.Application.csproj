@@ -9,4 +9,8 @@
       <ProjectReference Include="..\ParkingSpotRS.Core\ParkingSpotRS.Core.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Scrutor" Version="4.2.0" />
+    </ItemGroup>
+
 </Project>

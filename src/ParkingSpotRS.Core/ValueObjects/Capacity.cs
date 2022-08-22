@@ -8,7 +8,7 @@ public sealed record Capacity
 
     public Capacity(int value)
     {
-        if (value is < 1 or > 4)
+        if (value is < 0 or > 4)
         {
             throw new InvalidCapacityException(value);
         }
